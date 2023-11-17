@@ -1,4 +1,4 @@
-package nextstep.blackjack.utils;
+package nextstep.blackjack.util;
 
 import java.util.Scanner;
 
