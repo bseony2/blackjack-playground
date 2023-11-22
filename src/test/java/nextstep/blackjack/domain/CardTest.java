@@ -44,4 +44,16 @@ public class CardTest {
         assertThat(CardNumber.getCardNumberByIndex(11)).isEqualTo(CardNumber.QUEEN);
         assertThat(CardNumber.getCardNumberByIndex(12)).isEqualTo(CardNumber.KING);
     }
+
+    @Test
+    @DisplayName("카드 생성 테스트")
+    void cardGenerateTest() {
+        Card card = new Card(0);
+        assertThat(card.getNumber() == CardNumber.ACE).isTrue();
+        assertThat(card.getSuit() == Suit.CLUB).isTrue();
+
+        card = new Card(14);
+        assertThat(card.getNumber() == CardNumber.TWO).isTrue();
+        assertThat(card.getSuit() == Suit.HEART).isTrue();
+    }
 }
