@@ -19,7 +19,7 @@ public class Deck {
     }
 
     public Card getNextCard() {
-        Card card = deck.get(cardIdx);
+        Card card = deck.get(cardIdx++);
         if (cardIdx == TOTAL_CARD_QNTY) {
             initCardDeck();
         }
