@@ -24,4 +24,8 @@ public class Card {
         this.suit = suit;
         this.number = number;
     }
+
+    public int score() {
+        return this.number.getScore();
+    }
 }
