@@ -5,12 +5,20 @@ import nextstep.blackjack.enums.CardNumber;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Participant {
-    private final List<Card> cardList;
+public abstract class Participant {
 
-    public Participant() {
-        this.cardList = new ArrayList<>();
+    public final String name;
+
+    public List<Card> cardList = new ArrayList<>();
+
+    protected Participant(String name) {
+        this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
+
     public void addCard(Card card) {
         cardList.add(card);
     }
@@ -21,6 +29,15 @@ public class Participant {
                 .sum();
 
         return calAceCard(score);
+    }
+
+    public String getAllCards() {
+        String answer = getName() + "카드: ";
+        for (Card card : cardList) {
+            answer += card.toString() + " ";
+        }
+
+        return answer;
     }
 
     private int calAceCard(int score) {
