@@ -9,19 +9,15 @@ public class Deck {
     private List<Card> deck;
     int cardIdx;
 
-    public Deck() {
-        initCardDeck();
-    }
-
-    private void initCardDeck() {
-        this.deck = GeneratorFactory.getNewCardDeck();
-        cardIdx = 0;
+    public Deck(List<Card> newDeck) {
+        this.deck = newDeck;
+        this.cardIdx = 0;
     }
 
     public Card getNextCard() {
         Card card = deck.get(cardIdx++);
-        if (cardIdx == TOTAL_CARD_QNTY) {
-            initCardDeck();
+        if (cardIdx == deck.size()) {
+            this.deck = GeneratorFactory.getNewCardDeck();
         }
         return card;
     }

@@ -28,4 +28,9 @@ public class Card {
     public int score() {
         return this.number.getScore();
     }
+
+    @Override
+    public String toString() {
+        return number.getSymbol() + suit.getName();
+    }
 }
