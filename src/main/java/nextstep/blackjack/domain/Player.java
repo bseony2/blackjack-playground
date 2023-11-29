@@ -20,9 +20,8 @@ public class Player extends Participant{
     }
 
     public void getExtraCard(Deck deck) {
-        while (this.getScore() < 21) {
-            UserAnswer answer = UserInterface.askExtrCard(this);
-            if(answer == UserAnswer.NO) return;
+        while (this.getScore() < 21 && UserInterface.askExtrCard(this) == UserAnswer.YES) {
+
             this.addCard(deck.getNextCard());
             System.out.println(getAllCards());
         }
