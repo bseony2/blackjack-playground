@@ -14,6 +14,6 @@ public abstract class Running extends Started{
 
     @Override
     public double profit(double betAmt) {
-        return 0;
+        return betAmt * 2;
     }
 }

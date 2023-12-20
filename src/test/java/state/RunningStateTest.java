@@ -66,4 +66,16 @@ public class RunningStateTest {
 
         assertThat(state.isFinished()).isFalse();
     }
+
+    @Test
+    void RunningStateProfitTest() {
+        List<PlayingCard> cardList = Arrays.asList(
+                new PlayingCard(Denomination.KING, Suit.HEARTS),
+                new PlayingCard(Denomination.FIVE, Suit.CLUBS)
+        );
+
+        State state = StateFactory.stateGenerate(new Cards(cardList));
+
+        assertThat(state.profit(2500.5)).isEqualTo(5001);
+    }
 }
