@@ -31,4 +31,8 @@ public class PlayingCard {
     public int hashCode() {
         return Objects.hash(denomination, suit);
     }
+
+    public boolean isAceCard() {
+        return this.denomination.isAce();
+    }
 }
