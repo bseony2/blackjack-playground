@@ -92,4 +92,53 @@ public class FinishedStateTest {
         assertThat(state).isInstanceOf(Stay.class);
         assertThat(state.isFinished()).isTrue();
     }
+
+
+
+
+
+
+    @Test
+    void bustStateStayTest() {
+        List<PlayingCard> cardList = Arrays.asList(
+                new PlayingCard(Denomination.KING, Suit.HEARTS),
+                new PlayingCard(Denomination.FOUR, Suit.CLUBS),
+                new PlayingCard(Denomination.JACK, Suit.CLUBS)
+        );
+
+        State state = StateFactory.stateGenerate(new Cards(cardList));
+        assertThat(state).isInstanceOf(Bust.class);
+
+        state = state.stay();
+        assertThat(state).isInstanceOf(Bust.class);
+    }
+
+    @Test
+    void blackjackStateStayTest() {
+        List<PlayingCard> cardList = Arrays.asList(
+                new PlayingCard(Denomination.ACE, Suit.HEARTS),
+                new PlayingCard(Denomination.JACK, Suit.CLUBS)
+        );
+
+        State state = StateFactory.stateGenerate(new Cards(cardList));
+        assertThat(state).isInstanceOf(Blackjack.class);
+
+        state = state.stay();
+        assertThat(state).isInstanceOf(Blackjack.class);
+    }
+
+    @Test
+    void stayStateStayTest() {
+        List<PlayingCard> cardList = Arrays.asList(
+                new PlayingCard(Denomination.NINE, Suit.HEARTS),
+                new PlayingCard(Denomination.JACK, Suit.CLUBS)
+        );
+
+        State state = StateFactory.stateGenerate(new Cards(cardList));
+        state = state.stay();
+        assertThat(state).isInstanceOf(Stay.class);
+
+        state = state.stay();
+        assertThat(state).isInstanceOf(Stay.class);
+    }
 }

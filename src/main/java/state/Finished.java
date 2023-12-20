@@ -2,6 +2,7 @@ package state;
 
 import domain.Cards;
 import domain.PlayingCard;
+import factory.StateFactory;
 
 public abstract class Finished extends Started{
     public Finished(Cards cards) {
@@ -15,7 +16,7 @@ public abstract class Finished extends Started{
 
     @Override
     public State stay() {
-        return null;
+        return this;
     }
 
     @Override
