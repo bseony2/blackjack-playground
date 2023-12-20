@@ -34,4 +34,14 @@ public class GameRule {
         return GameResult.LOSE;
     }
 
+    public static double profit(Player player, GameResult result) {
+        if (GameResult.isWin(result)) {
+            return player.profit();
+        }
+        if (GameResult.isDraw(result)) {
+            return 0;
+        }
+
+        return player.profit() * -1;
+    }
 }

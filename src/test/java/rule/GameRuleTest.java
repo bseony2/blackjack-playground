@@ -169,4 +169,40 @@ class GameRuleTest {
 
         assertThat(GameRule.getResult(dealer, player)).isSameAs(GameResult.LOSE);
     }
+
+    @Test
+    void winProfitTest() {
+        List<PlayingCard> cardList = Arrays.asList(
+                new PlayingCard(Denomination.TWO, Suit.HEARTS)
+                , new PlayingCard(Denomination.SEVEN, Suit.DIAMONDS)
+        );
+        Player player = new Player("배선영", StateFactory.stateGenerate(new Cards(cardList)));
+        player.setBetAmt(10000);
+        double profit = GameRule.profit(player, GameResult.WIN);
+        assertThat(20000.0).isEqualTo(profit);
+    }
+
+    @Test
+    void drawProfitTest() {
+        List<PlayingCard> cardList = Arrays.asList(
+                new PlayingCard(Denomination.TWO, Suit.HEARTS)
+                , new PlayingCard(Denomination.SEVEN, Suit.DIAMONDS)
+        );
+        Player player = new Player("배선영", StateFactory.stateGenerate(new Cards(cardList)));
+        player.setBetAmt(10000);
+        double profit = GameRule.profit(player, GameResult.DRAW);
+        assertThat(0.0).isEqualTo(profit);
+    }
+
+    @Test
+    void loseProfitTest() {
+        List<PlayingCard> cardList = Arrays.asList(
+                new PlayingCard(Denomination.TWO, Suit.HEARTS)
+                , new PlayingCard(Denomination.SEVEN, Suit.DIAMONDS)
+        );
+        Player player = new Player("배선영", StateFactory.stateGenerate(new Cards(cardList)));
+        player.setBetAmt(10000);
+        double profit = GameRule.profit(player, GameResult.LOSE);
+        assertThat(-20000.0).isEqualTo(profit);
+    }
 }
