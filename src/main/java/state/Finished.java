@@ -25,7 +25,7 @@ public abstract class Finished extends Started{
 
     @Override
     public double profit(double betAmt) {
-        return 0;
+        return betAmt * earningRate();
     }
 
     public abstract double earningRate();

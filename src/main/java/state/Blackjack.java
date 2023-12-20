@@ -9,6 +9,6 @@ public class Blackjack extends Finished{
 
     @Override
     public double earningRate() {
-        return 0;
+        return 1.5;
     }
 }
