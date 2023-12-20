@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cards {
-    private final List<PlayingCard> cards = new ArrayList<>();
+    private final List<PlayingCard> cards;
+
+    public Cards(List<PlayingCard> cards) {
+        this.cards = cards;
+    }
 
     public int getScore() {
 
