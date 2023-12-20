@@ -35,4 +35,9 @@ public class PlayingCard {
     public boolean isAceCard() {
         return this.denomination.isAce();
     }
+
+    @Override
+    public String toString() {
+        return this.denomination.getAbbreviation() + this.suit.getAbbreviation();
+    }
 }

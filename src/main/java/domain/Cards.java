@@ -2,6 +2,7 @@ package domain;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Cards implements Iterable<PlayingCard>{
     private final List<PlayingCard> cards;
@@ -32,4 +33,10 @@ public class Cards implements Iterable<PlayingCard>{
     public Iterator<PlayingCard> iterator() {
         return this.cards.iterator();
     }
+
+    public Stream<PlayingCard> stream() {
+        return this.cards.stream();
+    }
+
+
 }
