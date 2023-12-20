@@ -1,10 +1,13 @@
 package factory;
 
 import domain.Cards;
+import domain.PlayingCard;
 import state.Blackjack;
 import state.Bust;
 import state.Hit;
 import state.State;
+
+import java.util.List;
 
 public class StateFactory {
 
@@ -21,5 +24,9 @@ public class StateFactory {
         }
 
         return new Bust(cards);
+    }
+
+    public static State stateGenerate(List<PlayingCard> playingCards) {
+        return stateGenerate(new Cards(playingCards));
     }
 }

@@ -2,6 +2,7 @@ package domain;
 
 import factory.CardFactory;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Deck {
@@ -26,5 +27,9 @@ public class Deck {
         }
 
         return card;
+    }
+
+    public List<PlayingCard> initDraw() {
+        return Arrays.asList(this.draw(), this.draw());
     }
 }
