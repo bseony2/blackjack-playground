@@ -3,9 +3,11 @@ package domain;
 import enums.Denomination;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 
-public class Cards {
+public class Cards{
     private final List<PlayingCard> cards;
 
     public Cards(List<PlayingCard> cards) {
@@ -24,5 +26,9 @@ public class Cards {
             score += 10;
         }
         return score;
+    }
+
+    public int size() {
+        return cards.size();
     }
 }

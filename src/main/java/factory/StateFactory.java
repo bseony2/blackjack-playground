@@ -13,11 +13,13 @@ public class StateFactory {
     public static State stateGenerate(Cards cards) {
         int score = cards.getScore();
 
-        if (score < BLACKJACK_SCORE) {
+        if (score == BLACKJACK_SCORE && cards.size() == 2) {
+            return new Blackjack(cards);
+        }
+        if (score <= BLACKJACK_SCORE) {
             return new Hit(cards);
         }
 
-        return new Blackjack(cards);
-
+        return new Bust(cards);
     }
 }
