@@ -25,6 +25,6 @@ public class Hit extends Running{
 
     @Override
     public State stay() {
-        return null;
+        return new Stay(cards());
     }
 }

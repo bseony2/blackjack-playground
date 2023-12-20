@@ -65,4 +65,18 @@ class StateTest {
 
         assertThat(result).isInstanceOf(Hit.class);
     }
+
+    @Test
+    void hitToStayTest() {
+        List<PlayingCard> cardList = Arrays.asList(
+                new PlayingCard(Denomination.KING, Suit.HEARTS),
+                new PlayingCard(Denomination.FIVE, Suit.CLUBS)
+        );
+
+        State state = StateFactory.stateGenerate(new Cards(cardList));
+
+        State result = state.stay();
+
+        assertThat(result).isInstanceOf(Stay.class);
+    }
 }
