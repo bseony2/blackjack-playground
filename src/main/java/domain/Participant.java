@@ -7,10 +7,15 @@ import java.util.stream.Collectors;
 public abstract class Participant {
 
     public final String name;
-    protected State state;
+    public State state;
 
     protected Participant(String name) {
         this.name = name;
+    }
+
+    public Participant(String name, State state) {
+        this.name = name;
+        this.state = state;
     }
 
     public String getName() {
@@ -21,7 +26,15 @@ public abstract class Participant {
         return state.cards().stream().map(PlayingCard::toString).collect(Collectors.joining(", "));
     }
 
+    public int getScore() {
+        return state.cards().getScore();
+    }
+
     public void setState(State state) {
         this.state = state;
+    }
+
+    public void stay() {
+        this.state = state.stay();
     }
 }
