@@ -11,7 +11,7 @@ public abstract class Finished extends Started{
 
     @Override
     public State draw(PlayingCard card) {
-        return null;
+        return this;
     }
 
     @Override
