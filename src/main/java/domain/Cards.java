@@ -1,13 +1,9 @@
 package domain;
 
-import enums.Denomination;
-
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.function.Consumer;
 
-public class Cards{
+public class Cards implements Iterable<PlayingCard>{
     private final List<PlayingCard> cards;
 
     public Cards(List<PlayingCard> cards) {
@@ -30,5 +26,10 @@ public class Cards{
 
     public int size() {
         return cards.size();
+    }
+
+    @Override
+    public Iterator<PlayingCard> iterator() {
+        return this.cards.iterator();
     }
 }

@@ -37,4 +37,32 @@ class StateTest {
 
         assertThat(result).isInstanceOf(Hit.class);
     }
+
+    @Test
+    void hitToBustTest() {
+        List<PlayingCard> cardList = Arrays.asList(
+                new PlayingCard(Denomination.KING, Suit.HEARTS),
+                new PlayingCard(Denomination.FIVE, Suit.CLUBS)
+        );
+
+        State result = StateFactory.stateGenerate(new Cards(cardList));
+
+        result = result.draw(new PlayingCard(Denomination.SEVEN, Suit.DIAMONDS));
+
+        assertThat(result).isInstanceOf(Bust.class);
+    }
+
+    @Test
+    void hitToHitTest() {
+        List<PlayingCard> cardList = Arrays.asList(
+                new PlayingCard(Denomination.KING, Suit.HEARTS),
+                new PlayingCard(Denomination.FIVE, Suit.CLUBS)
+        );
+
+        State result = StateFactory.stateGenerate(new Cards(cardList));
+
+        result = result.draw(new PlayingCard(Denomination.ACE, Suit.DIAMONDS));
+
+        assertThat(result).isInstanceOf(Hit.class);
+    }
 }
