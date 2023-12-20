@@ -15,7 +15,7 @@ public class PlayingCard {
         this.suit = suit;
     }
 
-    public double getScore() {
+    public int getScore() {
         return denomination.getScore();
     }
 
