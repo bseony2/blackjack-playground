@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Deck {
 
-    private static final int NUM_OF_PLAYING_CARD = 52;
+    public static final int NUM_OF_PLAYING_CARD = 52;
     private List<PlayingCard> deck;
     private int idx;
 
