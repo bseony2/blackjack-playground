@@ -1,5 +1,6 @@
 package userinterface;
 
+import domain.Deck;
 import domain.Player;
 
 import java.util.Scanner;
@@ -19,6 +20,13 @@ public class Answer {
 
     public static String askHit(String name) {
         System.out.println(name + "는 한장의 카드를 더 받겠습니까?");
-        return sc.nextLine();
+        return sc.next();
+    }
+
+    public static void getExtraCard(Player player, Deck deck) {
+        while (!player.isFinished() && askHit(player.getName()).equalsIgnoreCase("y")) {
+            player.draw(deck.draw());
+            System.out.println(player.getcards());
+        }
     }
 }

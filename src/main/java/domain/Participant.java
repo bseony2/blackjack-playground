@@ -37,4 +37,12 @@ public abstract class Participant {
     public void stay() {
         this.state = state.stay();
     }
+
+    public boolean isFinished() {
+        return state.isFinished();
+    }
+
+    public void draw(PlayingCard card) {
+        state = state.draw(card);
+    }
 }
